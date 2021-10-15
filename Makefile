@@ -6,4 +6,4 @@ sync:
 
 .PHONY: serve
 serve:
-	mdbook serve -p 4000
+	mdbook serve -p 4000 --dest-dir docs
