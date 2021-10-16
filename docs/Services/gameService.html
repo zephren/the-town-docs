@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Game Service - the-town-docs</title>
+        <title>Game Service (INCOMPLETE) - The Town Docs</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First</a></li><li class="chapter-item expanded "><a href="../GameState.html"><strong aria-hidden="true">3.</strong> Game State</a></li><li class="chapter-item expanded "><a href="../Services/index.html"><strong aria-hidden="true">4.</strong> Services</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Services/characterService.html"><strong aria-hidden="true">4.1.</strong> Character Service</a></li><li class="chapter-item expanded "><a href="../Services/gameService.html" class="active"><strong aria-hidden="true">4.2.</strong> Game Service</a></li><li class="chapter-item expanded "><a href="../Services/playerService.html"><strong aria-hidden="true">4.3.</strong> Player Service</a></li><li class="chapter-item expanded "><a href="../Services/toastService.html"><strong aria-hidden="true">4.4.</strong> Toast Service</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../Introduction.html"><strong aria-hidden="true">1.</strong> Introduction (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="../ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="../GameState.html"><strong aria-hidden="true">3.</strong> Game State (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="../GameValues.html"><strong aria-hidden="true">4.</strong> Game Values (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="../Services/index.html"><strong aria-hidden="true">5.</strong> Services (INCOMPLETE)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Services/characterService.html"><strong aria-hidden="true">5.1.</strong> Character Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="../Services/gameService.html" class="active"><strong aria-hidden="true">5.2.</strong> Game Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="../Services/playerService.html"><strong aria-hidden="true">5.3.</strong> Player Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="../Services/toastService.html"><strong aria-hidden="true">5.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="../TODO.html"><strong aria-hidden="true">6.</strong> Documentation TODO</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -104,7 +104,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">the-town-docs</h1>
+                    <h1 class="menu-title">The Town Docs</h1>
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -135,9 +135,52 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="game-service"><a class="header" href="#game-service">Game Service</a></h1>
-<pre><code class="language-javascript">const xyz = 123;
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<p><a href="#getbattles">getBattles</a></p>
+<p><a href="#createbattle">createBattle</a></p>
+<p><a href="#joinbattle">joinBattle</a></p>
+<p><a href="#leavebattle">leaveBattle</a></p>
+<p><a href="#getbattle">getBattle</a></p>
+<p><a href="#selectbattleslot">selectBattleSlot</a></p>
+<p><a href="#selectreserve">selectReserve</a></p>
+<p><a href="#selectenemy">selectEnemy</a></p>
+<p><a href="#startscavenge">startScavenge</a></p>
+<p><a href="#stopscavenge">stopScavenge</a></p>
+<p><a href="#startrepair">startRepair</a></p>
+<p><a href="#stoprepair">stopRepair</a></p>
+<p><a href="#startbuild">startBuild</a></p>
+<p><a href="#savetraining">saveTraining</a></p>
+<p><a href="#endbattle">endBattle</a></p>
+<p><a href="#searchmarket">searchMarket</a></p>
+<hr />
+<h3 id="getbattles"><a class="header" href="#getbattles">getBattles</a></h3>
+<p>Get a list of all globally known battles</p>
+<pre><code class="language-javascript">services.gameService.getBattles();
 </code></pre>
-<p>this is a test</p>
+<h3 id="createbattle"><a class="header" href="#createbattle">createBattle</a></h3>
+<p>Craete a personal battle with the given difficulty. It cannot be less than 1 or more than the global difficulty.</p>
+<pre><code class="language-javascript">// Create the simplest battle
+services.gameService.getBattles(1);
+</code></pre>
+<pre><code class="language-javascript">const difficulty = store.getDifficulty();
+
+// Create a battle of the current max difficulty
+services.gameService.getBattles(difficulty);
+</code></pre>
+<h3 id="joinbattle"><a class="header" href="#joinbattle">joinBattle</a></h3>
+<h3 id="leavebattle"><a class="header" href="#leavebattle">leaveBattle</a></h3>
+<h3 id="getbattle"><a class="header" href="#getbattle">getBattle</a></h3>
+<h3 id="selectbattleslot"><a class="header" href="#selectbattleslot">selectBattleSlot</a></h3>
+<h3 id="selectreserve"><a class="header" href="#selectreserve">selectReserve</a></h3>
+<h3 id="selectenemy"><a class="header" href="#selectenemy">selectEnemy</a></h3>
+<h3 id="startscavenge"><a class="header" href="#startscavenge">startScavenge</a></h3>
+<h3 id="stopscavenge"><a class="header" href="#stopscavenge">stopScavenge</a></h3>
+<h3 id="startrepair"><a class="header" href="#startrepair">startRepair</a></h3>
+<h3 id="stoprepair"><a class="header" href="#stoprepair">stopRepair</a></h3>
+<h3 id="startbuild"><a class="header" href="#startbuild">startBuild</a></h3>
+<h3 id="savetraining"><a class="header" href="#savetraining">saveTraining</a></h3>
+<h3 id="endbattle"><a class="header" href="#endbattle">endBattle</a></h3>
+<h3 id="searchmarket"><a class="header" href="#searchmarket">searchMarket</a></h3>
 
                     </main>
 

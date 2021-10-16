@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Game State - the-town-docs</title>
+        <title>Game State (INCOMPLETE) - The Town Docs</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First</a></li><li class="chapter-item expanded "><a href="GameState.html" class="active"><strong aria-hidden="true">3.</strong> Game State</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">4.</strong> Services</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">4.1.</strong> Character Service</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">4.2.</strong> Game Service</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">4.3.</strong> Player Service</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">4.4.</strong> Toast Service</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameState.html" class="active"><strong aria-hidden="true">3.</strong> Game State (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameValues.html"><strong aria-hidden="true">4.</strong> Game Values (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">5.</strong> Services (INCOMPLETE)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">5.1.</strong> Character Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">5.2.</strong> Game Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">5.3.</strong> Player Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">5.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="TODO.html"><strong aria-hidden="true">6.</strong> Documentation TODO</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -104,7 +104,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">the-town-docs</h1>
+                    <h1 class="menu-title">The Town Docs</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -138,7 +138,27 @@
 <p>The client game state is stored locally and globally in <code>store.state</code>. There are a lot of properties in the store state, however you don't need to know all of them. This section will cover what should be most valuable.</p>
 <p>When referring to a property the <code>store.state</code> is assumed as the way to reference it.</p>
 <p>For example to get to the character's current equipment</p>
-<pre><code class="language-JavaScript">store.state.user.player.character.equipment
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<p>The store provides some helper functions for getting to specific pieces of data</p>
+<p><a href="#getplayer">getPlayer</a></p>
+<p><a href="#getinventory">getInventory</a></p>
+<p><a href="#getcharacter">getCharacter</a></p>
+<p><a href="#getdifficulty">getDifficulty</a></p>
+<h3 id="getplayer"><a class="header" href="#getplayer">getPlayer</a></h3>
+<p>Get the player object</p>
+<pre><code class="language-javascript">const player = game.store.getPlayer();
+</code></pre>
+<h3 id="getinventory"><a class="header" href="#getinventory">getInventory</a></h3>
+<p>Get the inventory object</p>
+<pre><code class="language-javascript">const inventory = game.store.getInventory();
+</code></pre>
+<h3 id="getcharacter"><a class="header" href="#getcharacter">getCharacter</a></h3>
+<p>Get the character object</p>
+<pre><code class="language-javascript">const character = game.store.getCharacter();
+</code></pre>
+<h3 id="getdifficulty"><a class="header" href="#getdifficulty">getDifficulty</a></h3>
+<p>Get the current game difficulty</p>
+<pre><code class="language-javascript">const difficulty = game.store.getDifficulty();
 </code></pre>
 
                     </main>
@@ -148,7 +168,7 @@
                             <a rel="prev" href="ReadFirst.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="Services/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="GameValues.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -160,7 +180,7 @@
                     <a rel="prev" href="ReadFirst.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="Services/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="GameValues.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

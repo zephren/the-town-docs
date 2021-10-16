@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>the-town-docs</title>
+        <title>The Town Docs</title>
         <meta name="robots" content="noindex" />
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First</a></li><li class="chapter-item expanded "><a href="GameState.html"><strong aria-hidden="true">3.</strong> Game State</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">4.</strong> Services</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">4.1.</strong> Character Service</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">4.2.</strong> Game Service</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">4.3.</strong> Player Service</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">4.4.</strong> Toast Service</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameState.html"><strong aria-hidden="true">3.</strong> Game State (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameValues.html"><strong aria-hidden="true">4.</strong> Game Values (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">5.</strong> Services (INCOMPLETE)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">5.1.</strong> Character Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">5.2.</strong> Game Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">5.3.</strong> Player Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">5.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="TODO.html"><strong aria-hidden="true">6.</strong> Documentation TODO</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -105,7 +105,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">the-town-docs</h1>
+                    <h1 class="menu-title">The Town Docs</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -149,26 +149,127 @@
 <p>The client game state is stored locally and globally in <code>store.state</code>. There are a lot of properties in the store state, however you don't need to know all of them. This section will cover what should be most valuable.</p>
 <p>When referring to a property the <code>store.state</code> is assumed as the way to reference it.</p>
 <p>For example to get to the character's current equipment</p>
-<pre><code class="language-JavaScript">store.state.user.player.character.equipment
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<p>The store provides some helper functions for getting to specific pieces of data</p>
+<p><a href="GameState.html#getplayer">getPlayer</a></p>
+<p><a href="GameState.html#getinventory">getInventory</a></p>
+<p><a href="GameState.html#getcharacter">getCharacter</a></p>
+<p><a href="GameState.html#getdifficulty">getDifficulty</a></p>
+<h3 id="getplayer"><a class="header" href="#getplayer">getPlayer</a></h3>
+<p>Get the player object</p>
+<pre><code class="language-javascript">const player = game.store.getPlayer();
+</code></pre>
+<h3 id="getinventory"><a class="header" href="#getinventory">getInventory</a></h3>
+<p>Get the inventory object</p>
+<pre><code class="language-javascript">const inventory = game.store.getInventory();
+</code></pre>
+<h3 id="getcharacter"><a class="header" href="#getcharacter">getCharacter</a></h3>
+<p>Get the character object</p>
+<pre><code class="language-javascript">const character = game.store.getCharacter();
+</code></pre>
+<h3 id="getdifficulty"><a class="header" href="#getdifficulty">getDifficulty</a></h3>
+<p>Get the current game difficulty</p>
+<pre><code class="language-javascript">const difficulty = game.store.getDifficulty();
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="game-values"><a class="header" href="#game-values">Game Values</a></h1>
+<p>There are a number of configuration values that determine how game systems behave. These values can be helpful in making decisions within your script.</p>
+<pre><code class="language-javascript">
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="services"><a class="header" href="#services">Services</a></h1>
 <p>asfd
 sdfsd</p>
 <p>asdfsad</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="character-service"><a class="header" href="#character-service">Character Service</a></h1>
-<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
-<h3 id="gameserviceequip"><a class="header" href="#gameserviceequip">gameService.equip</a></h3>
+<h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
+<p><a href="Services/characterService.html#equip">equip</a></p>
+<p><a href="Services/characterService.html#unequip">unequip</a></p>
+<hr />
+<h3 id="equip"><a class="header" href="#equip">equip</a></h3>
 <p>Equip an item</p>
 <pre><code class="language-javascript">services.gameService.equip();
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="game-service"><a class="header" href="#game-service">Game Service</a></h1>
-<pre><code class="language-javascript">const xyz = 123;
+<h3 id="unequip"><a class="header" href="#unequip">unequip</a></h3>
+<p>Unequip an item</p>
+<pre><code class="language-javascript">services.gameService.unequip();
 </code></pre>
-<p>this is a test</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="game-service"><a class="header" href="#game-service">Game Service</a></h1>
+<h2 id="functions-2"><a class="header" href="#functions-2">Functions</a></h2>
+<p><a href="Services/gameService.html#getbattles">getBattles</a></p>
+<p><a href="Services/gameService.html#createbattle">createBattle</a></p>
+<p><a href="Services/gameService.html#joinbattle">joinBattle</a></p>
+<p><a href="Services/gameService.html#leavebattle">leaveBattle</a></p>
+<p><a href="Services/gameService.html#getbattle">getBattle</a></p>
+<p><a href="Services/gameService.html#selectbattleslot">selectBattleSlot</a></p>
+<p><a href="Services/gameService.html#selectreserve">selectReserve</a></p>
+<p><a href="Services/gameService.html#selectenemy">selectEnemy</a></p>
+<p><a href="Services/gameService.html#startscavenge">startScavenge</a></p>
+<p><a href="Services/gameService.html#stopscavenge">stopScavenge</a></p>
+<p><a href="Services/gameService.html#startrepair">startRepair</a></p>
+<p><a href="Services/gameService.html#stoprepair">stopRepair</a></p>
+<p><a href="Services/gameService.html#startbuild">startBuild</a></p>
+<p><a href="Services/gameService.html#savetraining">saveTraining</a></p>
+<p><a href="Services/gameService.html#endbattle">endBattle</a></p>
+<p><a href="Services/gameService.html#searchmarket">searchMarket</a></p>
+<hr />
+<h3 id="getbattles"><a class="header" href="#getbattles">getBattles</a></h3>
+<p>Get a list of all globally known battles</p>
+<pre><code class="language-javascript">services.gameService.getBattles();
+</code></pre>
+<h3 id="createbattle"><a class="header" href="#createbattle">createBattle</a></h3>
+<p>Craete a personal battle with the given difficulty. It cannot be less than 1 or more than the global difficulty.</p>
+<pre><code class="language-javascript">// Create the simplest battle
+services.gameService.getBattles(1);
+</code></pre>
+<pre><code class="language-javascript">const difficulty = store.getDifficulty();
+
+// Create a battle of the current max difficulty
+services.gameService.getBattles(difficulty);
+</code></pre>
+<h3 id="joinbattle"><a class="header" href="#joinbattle">joinBattle</a></h3>
+<h3 id="leavebattle"><a class="header" href="#leavebattle">leaveBattle</a></h3>
+<h3 id="getbattle"><a class="header" href="#getbattle">getBattle</a></h3>
+<h3 id="selectbattleslot"><a class="header" href="#selectbattleslot">selectBattleSlot</a></h3>
+<h3 id="selectreserve"><a class="header" href="#selectreserve">selectReserve</a></h3>
+<h3 id="selectenemy"><a class="header" href="#selectenemy">selectEnemy</a></h3>
+<h3 id="startscavenge"><a class="header" href="#startscavenge">startScavenge</a></h3>
+<h3 id="stopscavenge"><a class="header" href="#stopscavenge">stopScavenge</a></h3>
+<h3 id="startrepair"><a class="header" href="#startrepair">startRepair</a></h3>
+<h3 id="stoprepair"><a class="header" href="#stoprepair">stopRepair</a></h3>
+<h3 id="startbuild"><a class="header" href="#startbuild">startBuild</a></h3>
+<h3 id="savetraining"><a class="header" href="#savetraining">saveTraining</a></h3>
+<h3 id="endbattle"><a class="header" href="#endbattle">endBattle</a></h3>
+<h3 id="searchmarket"><a class="header" href="#searchmarket">searchMarket</a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="player-service"><a class="header" href="#player-service">Player Service</a></h1>
+<h2 id="functions-3"><a class="header" href="#functions-3">Functions</a></h2>
+<p><a href="Services/playerService.html#discarditems">discardItems</a></p>
+<p><a href="Services/playerService.html#marketitem">marketItem</a></p>
+<p><a href="Services/playerService.html#unmarketitem">unmarketItem</a></p>
+<p><a href="Services/playerService.html#buymarketitem">buyMarketItem</a></p>
+<p><a href="Services/playerService.html#getmarketitems">getMarketItems</a></p>
+<hr />
+<h3 id="discarditems"><a class="header" href="#discarditems">discardItems</a></h3>
+<h3 id="marketitem"><a class="header" href="#marketitem">marketItem</a></h3>
+<h3 id="unmarketitem"><a class="header" href="#unmarketitem">unmarketItem</a></h3>
+<h3 id="buymarketitem"><a class="header" href="#buymarketitem">buyMarketItem</a></h3>
+<h3 id="getmarketitems"><a class="header" href="#getmarketitems">getMarketItems</a></h3>
 <pre><code class="language-javascript">const another = &quot;abc&quot;;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="toast-service"><a class="header" href="#toast-service">Toast Service</a></h1>
+<p>This service allows you to create the notifications that you see on the bottom right side of the window.</p>
+<h2 id="functions-4"><a class="header" href="#functions-4">Functions</a></h2>
+<p><a href="Services/toastService.html#push">push</a></p>
+<hr />
+<h3 id="push"><a class="header" href="#push">push</a></h3>
+<p>Push a &quot;toast&quot; onto the stack with the desired notification text</p>
+<pre><code class="language-javascript">services.toastService.push({
+  duration: 60000, // Stay visible for 1 minute (default: 5_000)
+  text: &quot;Hello toast!&quot;,
+});
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h3 id="more-code-examples-for-how-do-to-things"><a class="header" href="#more-code-examples-for-how-do-to-things">More code examples for how do to things</a></h3>
+<ul>
+<li>How to find an item with specific attributes</li>
+</ul>
 
                     </main>
 
