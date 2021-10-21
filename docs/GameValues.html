@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Game Values (INCOMPLETE) - The Town Docs</title>
+        <title>Game Values - The Town Docs</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameState.html"><strong aria-hidden="true">3.</strong> Game State (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameValues.html" class="active"><strong aria-hidden="true">4.</strong> Game Values (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">5.</strong> Services (INCOMPLETE)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">5.1.</strong> Character Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">5.2.</strong> Game Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">5.3.</strong> Player Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">5.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="TODO.html"><strong aria-hidden="true">6.</strong> Documentation TODO</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameState.html"><strong aria-hidden="true">3.</strong> Game State (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameValues.html" class="active"><strong aria-hidden="true">4.</strong> Game Values</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">5.</strong> Services</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">5.1.</strong> Character Service</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">5.2.</strong> Game Service</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">5.3.</strong> Player Service</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">5.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="TODO.html"><strong aria-hidden="true">6.</strong> Documentation TODO</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -136,8 +136,27 @@
                     <main>
                         <h1 id="game-values"><a class="header" href="#game-values">Game Values</a></h1>
 <p>There are a number of configuration values that determine how game systems behave. These values can be helpful in making decisions within your script.</p>
-<pre><code class="language-javascript">
+<h3 id="example-usage"><a class="header" href="#example-usage">Example usage</a></h3>
+<pre><code class="language-javascript">game.gameValues.RECOVERY_TIMER_MODIFIER;
 </code></pre>
+<h3 id="list-of-value-names"><a class="header" href="#list-of-value-names">List of value names</a></h3>
+<table><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
+<tr><td>DIFFICULTY_ITEM_MODIFIER</td><td>Item level = battle.level * gameValues.DIFFICULTY_ITEM_MODIFIER</td></tr>
+<tr><td>SCAVENGE_ITEM_AVAILABLE_BASE</td><td>Base value for scavenge chance when drops are available, added to the chance based on the player skill level</td></tr>
+<tr><td>SCAVENGE_ITEM_UNAVAILABLE_BASE</td><td>Base value for scavenge chance when drops are available, added to the chance based on the player skill level</td></tr>
+<tr><td>SCAVENGE_TICK_PERIOD</td><td>How how many ticks before the scavenge process should execute</td></tr>
+<tr><td>RECOVERY_TIMER_MODIFIER</td><td>The number of ticks to recover after being knocked out. character.recoveryTimer += character.recoveryCounter * gameValues.RECOVERY_TIMER_MODIFIER</td></tr>
+<tr><td>NON_BATTLE_HP_RECOVERY_MODIFIER</td><td>Amount of HP recovered when not in battle</td></tr>
+<tr><td>TOWN_RECOVERY_TIME_MODIFIER</td><td>Number of ticks for the town rest after starting to loop</td></tr>
+<tr><td>TOWN_BUILD_SKILL_LEVEL_MODIFIER</td><td>Base value for the expGrowth function. 1 / MathExtra.baseExpGrowth(gameValues.TOWN_BUILD_SKILL_LEVEL_MODIFIER, skillLevel);</td></tr>
+<tr><td>TOWN_DAMAGE_MODIFIER</td><td>Modifier for damage applied to the town for each enemy. townDamage += enemy.level * gameValues.TOWN_DAMAGE_MODIFIER;</td></tr>
+<tr><td>TOWN_TICK_PERIOD</td><td>How how many ticks before the town process should execute</td></tr>
+<tr><td>TOWN_BASE_HP</td><td>Base HP for the town</td></tr>
+<tr><td>BATTLE_ENEMY_DEFEAT_NEW_ITEMS</td><td>Number of itmes dropped when defeating an enemy</td></tr>
+<tr><td>BATTLE_DIFFICULTY_DIVISOR</td><td>Used to determine the number of ticks to increase the battle difficulty (level). cycleTickCount / gameValues.BATTLE_DIFFICULTY_DIVISOR</td></tr>
+<tr><td>BATTLE_AUTO_CREATION_RATIO</td><td>The minimum ratio of players to battle position slots required for a battle to be automatically created. True if the ratio is greater than this value</td></tr>
+</tbody></table>
+<p>TODO: create a script to generate the above names/descriptions</p>
 
                     </main>
 

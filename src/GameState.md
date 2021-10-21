@@ -2,9 +2,33 @@
 
 The client game state is stored locally and globally in `store.state`. There are a lot of properties in the store state, however you don't need to know all of them. This section will cover what should be most valuable.
 
+For example to get to the character's current equipment.
+
+```javascript
+const equipment = game.store.state.user.player.character.equipment;
+```
+
+## Properties
+
 When referring to a property the `store.state` is assumed as the way to reference it.
 
-For example to get to the character's current equipment
+### user.player
+
+#### user.player.inventory
+
+The current inventory
+
+Can also use `store.getInventory()`
+
+#### user.player.character
+
+Get all of the character's data
+
+Can also use `store.getCharacter()`
+
+#### user.player.activity
+
+The current activity of the player (ex "battle" | "scavenge" | "repair" | "build" | null)
 
 ## Functions
 

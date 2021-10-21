@@ -1,5 +1,7 @@
 # Introduction
 
+This book is the documentation for programatically interacting with {{gameName}} game
+
 ## To Beginners
 
 I hope this serves as a fun way to learn how to program logic to interact with and automate various processes within the game.

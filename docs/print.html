@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameState.html"><strong aria-hidden="true">3.</strong> Game State (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameValues.html"><strong aria-hidden="true">4.</strong> Game Values (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">5.</strong> Services (INCOMPLETE)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">5.1.</strong> Character Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">5.2.</strong> Game Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">5.3.</strong> Player Service (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">5.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="TODO.html"><strong aria-hidden="true">6.</strong> Documentation TODO</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameState.html"><strong aria-hidden="true">3.</strong> Game State (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameValues.html"><strong aria-hidden="true">4.</strong> Game Values</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">5.</strong> Services</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">5.1.</strong> Character Service</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">5.2.</strong> Game Service</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">5.3.</strong> Player Service</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">5.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="TODO.html"><strong aria-hidden="true">6.</strong> Documentation TODO</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -136,6 +136,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>This book is the documentation for programatically interacting with The Town game</p>
 <h2 id="to-beginners"><a class="header" href="#to-beginners">To Beginners</a></h2>
 <p>I hope this serves as a fun way to learn how to program logic to interact with and automate various processes within the game.</p>
 <p>While this documentation provides code examples, you may also benefit from practicing with online resources.</p>
@@ -147,8 +148,20 @@
 <p>Request limits</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="game-state"><a class="header" href="#game-state">Game State</a></h1>
 <p>The client game state is stored locally and globally in <code>store.state</code>. There are a lot of properties in the store state, however you don't need to know all of them. This section will cover what should be most valuable.</p>
+<p>For example to get to the character's current equipment.</p>
+<pre><code class="language-javascript">const equipment = game.store.state.user.player.character.equipment;
+</code></pre>
+<h2 id="properties"><a class="header" href="#properties">Properties</a></h2>
 <p>When referring to a property the <code>store.state</code> is assumed as the way to reference it.</p>
-<p>For example to get to the character's current equipment</p>
+<h3 id="userplayer"><a class="header" href="#userplayer">user.player</a></h3>
+<h4 id="userplayerinventory"><a class="header" href="#userplayerinventory">user.player.inventory</a></h4>
+<p>The current inventory</p>
+<p>Can also use <code>store.getInventory()</code></p>
+<h4 id="userplayercharacter"><a class="header" href="#userplayercharacter">user.player.character</a></h4>
+<p>Get all of the character's data</p>
+<p>Can also use <code>store.getCharacter()</code></p>
+<h4 id="userplayeractivity"><a class="header" href="#userplayeractivity">user.player.activity</a></h4>
+<p>The current activity of the player (ex &quot;battle&quot; | &quot;scavenge&quot; | &quot;repair&quot; | &quot;build&quot; | null)</p>
 <h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
 <p>The store provides some helper functions for getting to specific pieces of data</p>
 <p><a href="GameState.html#getplayer">getPlayer</a></p>
@@ -173,24 +186,48 @@
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="game-values"><a class="header" href="#game-values">Game Values</a></h1>
 <p>There are a number of configuration values that determine how game systems behave. These values can be helpful in making decisions within your script.</p>
-<pre><code class="language-javascript">
+<h3 id="example-usage"><a class="header" href="#example-usage">Example usage</a></h3>
+<pre><code class="language-javascript">game.gameValues.RECOVERY_TIMER_MODIFIER;
 </code></pre>
+<h3 id="list-of-value-names"><a class="header" href="#list-of-value-names">List of value names</a></h3>
+<table><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
+<tr><td>DIFFICULTY_ITEM_MODIFIER</td><td>Item level = battle.level * gameValues.DIFFICULTY_ITEM_MODIFIER</td></tr>
+<tr><td>SCAVENGE_ITEM_AVAILABLE_BASE</td><td>Base value for scavenge chance when drops are available, added to the chance based on the player skill level</td></tr>
+<tr><td>SCAVENGE_ITEM_UNAVAILABLE_BASE</td><td>Base value for scavenge chance when drops are available, added to the chance based on the player skill level</td></tr>
+<tr><td>SCAVENGE_TICK_PERIOD</td><td>How how many ticks before the scavenge process should execute</td></tr>
+<tr><td>RECOVERY_TIMER_MODIFIER</td><td>The number of ticks to recover after being knocked out. character.recoveryTimer += character.recoveryCounter * gameValues.RECOVERY_TIMER_MODIFIER</td></tr>
+<tr><td>NON_BATTLE_HP_RECOVERY_MODIFIER</td><td>Amount of HP recovered when not in battle</td></tr>
+<tr><td>TOWN_RECOVERY_TIME_MODIFIER</td><td>Number of ticks for the town rest after starting to loop</td></tr>
+<tr><td>TOWN_BUILD_SKILL_LEVEL_MODIFIER</td><td>Base value for the expGrowth function. 1 / MathExtra.baseExpGrowth(gameValues.TOWN_BUILD_SKILL_LEVEL_MODIFIER, skillLevel);</td></tr>
+<tr><td>TOWN_DAMAGE_MODIFIER</td><td>Modifier for damage applied to the town for each enemy. townDamage += enemy.level * gameValues.TOWN_DAMAGE_MODIFIER;</td></tr>
+<tr><td>TOWN_TICK_PERIOD</td><td>How how many ticks before the town process should execute</td></tr>
+<tr><td>TOWN_BASE_HP</td><td>Base HP for the town</td></tr>
+<tr><td>BATTLE_ENEMY_DEFEAT_NEW_ITEMS</td><td>Number of itmes dropped when defeating an enemy</td></tr>
+<tr><td>BATTLE_DIFFICULTY_DIVISOR</td><td>Used to determine the number of ticks to increase the battle difficulty (level). cycleTickCount / gameValues.BATTLE_DIFFICULTY_DIVISOR</td></tr>
+<tr><td>BATTLE_AUTO_CREATION_RATIO</td><td>The minimum ratio of players to battle position slots required for a battle to be automatically created. True if the ratio is greater than this value</td></tr>
+</tbody></table>
+<p>TODO: create a script to generate the above names/descriptions</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="services"><a class="header" href="#services">Services</a></h1>
-<p>asfd
-sdfsd</p>
-<p>asdfsad</p>
+<p>This section describes the functions available from each service made available to the script engine.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="character-service"><a class="header" href="#character-service">Character Service</a></h1>
+<p>This service allows you to perform character specific actions.</p>
 <h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
 <p><a href="Services/characterService.html#equip">equip</a></p>
 <p><a href="Services/characterService.html#unequip">unequip</a></p>
 <hr />
 <h3 id="equip"><a class="header" href="#equip">equip</a></h3>
 <p>Equip an item</p>
-<pre><code class="language-javascript">services.gameService.equip();
+<pre><code class="language-javascript">// Get the first item in the inventory
+const item = game.store.getInventory()[0];
+
+game.gameService.equip(item.id);
 </code></pre>
 <h3 id="unequip"><a class="header" href="#unequip">unequip</a></h3>
 <p>Unequip an item</p>
-<pre><code class="language-javascript">services.gameService.unequip();
+<pre><code class="language-javascript">const equipment = game.store.getCharacter().equipment;
+
+// Unequip the first item in the list of equipment
+game.gameService.unequip(equipment[0]);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="game-service"><a class="header" href="#game-service">Game Service</a></h1>
 <h2 id="functions-2"><a class="header" href="#functions-2">Functions</a></h2>
@@ -198,7 +235,6 @@ sdfsd</p>
 <p><a href="Services/gameService.html#createbattle">createBattle</a></p>
 <p><a href="Services/gameService.html#joinbattle">joinBattle</a></p>
 <p><a href="Services/gameService.html#leavebattle">leaveBattle</a></p>
-<p><a href="Services/gameService.html#getbattle">getBattle</a></p>
 <p><a href="Services/gameService.html#selectbattleslot">selectBattleSlot</a></p>
 <p><a href="Services/gameService.html#selectreserve">selectReserve</a></p>
 <p><a href="Services/gameService.html#selectenemy">selectEnemy</a></p>
@@ -213,33 +249,120 @@ sdfsd</p>
 <hr />
 <h3 id="getbattles"><a class="header" href="#getbattles">getBattles</a></h3>
 <p>Get a list of all globally known battles</p>
-<pre><code class="language-javascript">services.gameService.getBattles();
+<pre><code class="language-javascript">await game.gameService.getBattles();
 </code></pre>
 <h3 id="createbattle"><a class="header" href="#createbattle">createBattle</a></h3>
 <p>Craete a personal battle with the given difficulty. It cannot be less than 1 or more than the global difficulty.</p>
 <pre><code class="language-javascript">// Create the simplest battle
-services.gameService.getBattles(1);
+await game.gameService.createBattle(1);
 </code></pre>
 <pre><code class="language-javascript">const difficulty = store.getDifficulty();
 
 // Create a battle of the current max difficulty
-services.gameService.getBattles(difficulty);
+game.gameService.createBattle(difficulty);
 </code></pre>
 <h3 id="joinbattle"><a class="header" href="#joinbattle">joinBattle</a></h3>
+<p>Join the specified battle.</p>
+<pre><code class="language-javascript">const firstBattle = store.state.battles[0];
+
+// Join the battle at the top of the list if there is one
+if (firstBattle) {
+  await game.gameService.joinBattle(firstBattle.id);
+}
+</code></pre>
 <h3 id="leavebattle"><a class="header" href="#leavebattle">leaveBattle</a></h3>
-<h3 id="getbattle"><a class="header" href="#getbattle">getBattle</a></h3>
+<p>Leave the current battle.</p>
+<pre><code class="language-javascript">const { player } = store.state.user;
+
+// Leave the battle if currently in one
+if (player.battleId) {
+  await game.gameService.leaveBattle();
+}
+</code></pre>
 <h3 id="selectbattleslot"><a class="header" href="#selectbattleslot">selectBattleSlot</a></h3>
+<p>Move to a battle slot to participate in the battle from.</p>
+<pre><code class="language-javascript">const { battle } = store.state;
+
+// Try to select the last slot (back right)
+if (battle) {
+  const lastSlotIndex = battle.width * battle.height - 1;
+  await game.gameService.selectBattleSlot(lastSlotIndex);
+}
+</code></pre>
 <h3 id="selectreserve"><a class="header" href="#selectreserve">selectReserve</a></h3>
+<p>Move to the reserve position outside of the battle.</p>
+<pre><code class="language-javascript">const { battle } = store.state;
+
+if (battle) {
+  await game.gameService.selectReserve();
+}
+</code></pre>
 <h3 id="selectenemy"><a class="header" href="#selectenemy">selectEnemy</a></h3>
+<p>Select the index of the enemy you want to target.</p>
+<pre><code class="language-javascript">const { battle } = store.state;
+
+// Try to select the last slot (back right)
+if (battle) {
+  const lastEnemyIndex = battle.enemies.length - 1;
+  await game.gameService.selectBattleSlot(lastEnemyIndex);
+}
+</code></pre>
 <h3 id="startscavenge"><a class="header" href="#startscavenge">startScavenge</a></h3>
+<p>Start scavenging the specified battle.</p>
+<pre><code class="language-javascript">const firstBattle = store.state.battles[0];
+
+// Join the battle at the top of the list if there is one
+if (firstBattle) {
+  await game.gameService.startScavenge(firstBattle.id);
+}
+</code></pre>
 <h3 id="stopscavenge"><a class="header" href="#stopscavenge">stopScavenge</a></h3>
+<p>Stop scavenging the current battle.</p>
+<pre><code class="language-javascript">const { player } = store.state.user;
+
+// Leave the battle if currently in one
+if (player.battleId) {
+  await game.gameService.stopScavenge();
+}
+</code></pre>
 <h3 id="startrepair"><a class="header" href="#startrepair">startRepair</a></h3>
+<p>Start repairing the town.</p>
+<pre><code class="language-javascript">await game.gameService.startRepair();
+</code></pre>
 <h3 id="stoprepair"><a class="header" href="#stoprepair">stopRepair</a></h3>
+<p>Stop repairing the town.</p>
+<pre><code class="language-javascript">await game.gameService.stopRepair();
+</code></pre>
 <h3 id="startbuild"><a class="header" href="#startbuild">startBuild</a></h3>
+<p>Start building the specified building.</p>
+<pre><code class="language-javascript">await game.gameService.startBuild();
+</code></pre>
 <h3 id="savetraining"><a class="header" href="#savetraining">saveTraining</a></h3>
+<p>Save the training configuration. Must sum to no more than 1.0</p>
+<pre><code class="language-javascript">const statDistributions = {
+  hp: 0.25,
+  dmg: 0.25,
+  def: 0.25,
+  heal: 0.25,
+};
+
+await game.gameService.saveTraining(statDistributions);
+</code></pre>
 <h3 id="endbattle"><a class="header" href="#endbattle">endBattle</a></h3>
+<p>End a personal battle.</p>
+<pre><code class="language-javascript">const { player } = store.state.user;
+
+// Leave the battle if currently in one
+if (player.battleId) {
+  await game.gameService.endBattle();
+}
+</code></pre>
 <h3 id="searchmarket"><a class="header" href="#searchmarket">searchMarket</a></h3>
+<p>Search the market using the specified criteria. No criteria currently available, so this will return the first set of found items.</p>
+<pre><code class="language-javascript">await game.gameService.searchMarket();
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="player-service"><a class="header" href="#player-service">Player Service</a></h1>
+<p>This service lets you interact with player specitic functionality, like the inventory.</p>
 <h2 id="functions-3"><a class="header" href="#functions-3">Functions</a></h2>
 <p><a href="Services/playerService.html#discarditems">discardItems</a></p>
 <p><a href="Services/playerService.html#marketitem">marketItem</a></p>
@@ -248,11 +371,46 @@ services.gameService.getBattles(difficulty);
 <p><a href="Services/playerService.html#getmarketitems">getMarketItems</a></p>
 <hr />
 <h3 id="discarditems"><a class="header" href="#discarditems">discardItems</a></h3>
+<p>Discart the given item IDs</p>
+<pre><code class="language-javascript">// Get and discard all inventory items
+const itemIds = game.store.getInventory().map((item) =&gt; {
+  return item.id;
+});
+
+await game.playerService.discardItems(itemIds);
+</code></pre>
 <h3 id="marketitem"><a class="header" href="#marketitem">marketItem</a></h3>
+<p>Send an item to the market with a given price</p>
+<pre><code class="language-javascript">// Send the first item in the inventory to the market
+const item = game.store.getInventory()[0];
+
+if (item) {
+  await game.playerService.marketItem({ itemId: item.id, price: 1234 });
+}
+</code></pre>
 <h3 id="unmarketitem"><a class="header" href="#unmarketitem">unmarketItem</a></h3>
+<p>Remove an item from the market</p>
+<pre><code class="language-javascript">// Remove the first marked item from the market
+const myMarketItems = await game.playerService.getMarketItems();
+const item = myMarketItems[0];
+
+if (item) {
+  await game.playerService.unmarketItem(item.id);
+}
+</code></pre>
 <h3 id="buymarketitem"><a class="header" href="#buymarketitem">buyMarketItem</a></h3>
+<p>Buy an item from the market</p>
+<pre><code class="language-javascript">// Buy the first item in the market
+const marketItems = await game.gameService.searchMarket();
+const item = marketItems[0];
+
+if (item) {
+  await game.playerService.buyMarketItem(item.id);
+}
+</code></pre>
 <h3 id="getmarketitems"><a class="header" href="#getmarketitems">getMarketItems</a></h3>
-<pre><code class="language-javascript">const another = &quot;abc&quot;;
+<p>Get a list of your marketed items</p>
+<pre><code class="language-javascript">const myMarketItems = await game.playerService.getMarketItems();
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="toast-service"><a class="header" href="#toast-service">Toast Service</a></h1>
 <p>This service allows you to create the notifications that you see on the bottom right side of the window.</p>
@@ -261,7 +419,7 @@ services.gameService.getBattles(difficulty);
 <hr />
 <h3 id="push"><a class="header" href="#push">push</a></h3>
 <p>Push a &quot;toast&quot; onto the stack with the desired notification text</p>
-<pre><code class="language-javascript">services.toastService.push({
+<pre><code class="language-javascript">game.toastService.push({
   duration: 60000, // Stay visible for 1 minute (default: 5_000)
   text: &quot;Hello toast!&quot;,
 });
@@ -270,6 +428,7 @@ services.gameService.getBattles(difficulty);
 <ul>
 <li>How to find an item with specific attributes</li>
 </ul>
+<h3 id="automate-service-documentation-generation"><a class="header" href="#automate-service-documentation-generation">Automate service documentation generation?</a></h3>
 
                     </main>
 
