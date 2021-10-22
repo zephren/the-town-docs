@@ -1,5 +1,7 @@
 # Game Service
 
+This service contains the majoirty of the actions for interacting with the game.
+
 ## Functions
 
 [getBattles](#getbattles)

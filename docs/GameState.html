@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameState.html" class="active"><strong aria-hidden="true">3.</strong> Game State (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameValues.html"><strong aria-hidden="true">4.</strong> Game Values</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">5.</strong> Services</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">5.1.</strong> Character Service</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">5.2.</strong> Game Service</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">5.3.</strong> Player Service</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">5.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="TODO.html"><strong aria-hidden="true">6.</strong> Documentation TODO</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First</a></li><li class="chapter-item expanded "><a href="GameState.html" class="active"><strong aria-hidden="true">3.</strong> Game State (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameValues.html"><strong aria-hidden="true">4.</strong> Game Values</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">5.</strong> Services</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">5.1.</strong> Character Service</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">5.2.</strong> Game Service</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">5.3.</strong> Player Service</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">5.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="Examples/index.html"><strong aria-hidden="true">6.</strong> Examples</a></li><li class="chapter-item expanded "><a href="TODO.html"><strong aria-hidden="true">7.</strong> Documentation TODO</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -140,8 +140,11 @@
 <pre><code class="language-javascript">const equipment = game.store.state.user.player.character.equipment;
 </code></pre>
 <h2 id="properties"><a class="header" href="#properties">Properties</a></h2>
-<p>When referring to a property the <code>store.state</code> is assumed as the way to reference it.</p>
+<p>When referring to a property the <code>game.store.state</code> is assumed as the way to reference it. For example</p>
+<pre><code class="language-javascript">const inventory = game.store.state.user.player.inventory;
+</code></pre>
 <h3 id="userplayer"><a class="header" href="#userplayer">user.player</a></h3>
+<hr />
 <h4 id="userplayerinventory"><a class="header" href="#userplayerinventory">user.player.inventory</a></h4>
 <p>The current inventory</p>
 <p>Can also use <code>store.getInventory()</code></p>
@@ -150,6 +153,51 @@
 <p>Can also use <code>store.getCharacter()</code></p>
 <h4 id="userplayeractivity"><a class="header" href="#userplayeractivity">user.player.activity</a></h4>
 <p>The current activity of the player (ex &quot;battle&quot; | &quot;scavenge&quot; | &quot;repair&quot; | &quot;build&quot; | null)</p>
+<h3 id="battle"><a class="header" href="#battle">battle</a></h3>
+<hr />
+<p>This property will contain data about the current battle you are participating in. It will be <code>null</code> otherwise.</p>
+<h4 id="battlelevel"><a class="header" href="#battlelevel">battle.level</a></h4>
+<p>The current level/difficulty of the battle</p>
+<h4 id="battlesize"><a class="header" href="#battlesize">battle.size</a></h4>
+<p>This array contains two items <code>[width, height]</code></p>
+<h4 id="battleexpiration"><a class="header" href="#battleexpiration">battle.expiration</a></h4>
+<p>The timestamp at which the battle will expire</p>
+<h4 id="battleparticipants"><a class="header" href="#battleparticipants">battle.participants</a></h4>
+<p>The timestamp at which the battle will expire</p>
+<h4 id="battleparticipants-1"><a class="header" href="#battleparticipants-1">battle.participants</a></h4>
+<p>This array will have a length of <code>width x height</code> and contain information about each character participating in the battle. The index of the player is reletive to their position in the battle grid.</p>
+<h4 id="battleparticipants-2"><a class="header" href="#battleparticipants-2">battle.participants</a></h4>
+<p>This array contains information about every other character not directory participating in the battle.</p>
+<h4 id="battleenemies"><a class="header" href="#battleenemies">battle.enemies</a></h4>
+<p>This array contains information about the active enemies in the battle.</p>
+<h4 id="battlereserveenemies"><a class="header" href="#battlereserveenemies">battle.reserveEnemies</a></h4>
+<p>This array contains information about enemies not currently active in the battle.</p>
+<h4 id="battlescavengers"><a class="header" href="#battlescavengers">battle.scavengers</a></h4>
+<p>This array contains information about the players that are currently scavenging.</p>
+<h4 id="battleitemsavailable"><a class="header" href="#battleitemsavailable">battle.itemsAvailable</a></h4>
+<p>The number of items available to be scavenged.</p>
+<h4 id="battlehealslots"><a class="header" href="#battlehealslots">battle.healSlots</a></h4>
+<p>This array contains a list of indexes that are targes for being healed.</p>
+<h3 id="town"><a class="header" href="#town">town</a></h3>
+<hr />
+<h4 id="townhp"><a class="header" href="#townhp">town.hp</a></h4>
+<p>The current HP of the town.</p>
+<h4 id="townmaxhp"><a class="header" href="#townmaxhp">town.maxHp</a></h4>
+<p>The max HP of the town.</p>
+<h4 id="townhp-1"><a class="header" href="#townhp-1">town.hp</a></h4>
+<p>The current HP of the town.</p>
+<h4 id="townlastdamage"><a class="header" href="#townlastdamage">town.lastDamage</a></h4>
+<p>The most recent amount of damage the town received.</p>
+<h4 id="townlastrepair"><a class="header" href="#townlastrepair">town.lastRepair</a></h4>
+<p>The most recent amount of repairing the town received.</p>
+<h4 id="townrepairers"><a class="header" href="#townrepairers">town.repairers</a></h4>
+<p>This array contains the players currently repairing the town</p>
+<h4 id="townbuilders"><a class="header" href="#townbuilders">town.builders</a></h4>
+<p>This object contains a property for each building and an array of the players participating in building it.</p>
+<h4 id="townbuildings"><a class="header" href="#townbuildings">town.buildings</a></h4>
+<p>This object contains a property for each building and number representing its level.</p>
+<h4 id="townbuildingsexp"><a class="header" href="#townbuildingsexp">town.buildingsExp</a></h4>
+<p>This object contains a property for each building and number representing its experience to the next level.</p>
 <h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
 <p>The store provides some helper functions for getting to specific pieces of data</p>
 <p><a href="#getplayer">getPlayer</a></p>
