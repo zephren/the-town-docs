@@ -3,33 +3,33 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Player Service - The Town Docs</title>
+        <title>The Editor - The Town Docs</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="../favicon.svg">
-        <link rel="shortcut icon" href="../favicon.png">
-        <link rel="stylesheet" href="../css/variables.css">
-        <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/chrome.css">
-        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
         <!-- Fonts -->
-        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="../fonts/fonts.css">
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
     </head>
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "../";
+            var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First</a></li><li class="chapter-item expanded "><a href="../TheEditor.html"><strong aria-hidden="true">3.</strong> The Editor</a></li><li class="chapter-item expanded "><a href="../GameState.html"><strong aria-hidden="true">4.</strong> Game State</a></li><li class="chapter-item expanded "><a href="../GameValues.html"><strong aria-hidden="true">5.</strong> Game Values</a></li><li class="chapter-item expanded "><a href="../Services/index.html"><strong aria-hidden="true">6.</strong> Services</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Services/characterService.html"><strong aria-hidden="true">6.1.</strong> Character Service</a></li><li class="chapter-item expanded "><a href="../Services/gameService.html"><strong aria-hidden="true">6.2.</strong> Game Service</a></li><li class="chapter-item expanded "><a href="../Services/playerService.html" class="active"><strong aria-hidden="true">6.3.</strong> Player Service</a></li><li class="chapter-item expanded "><a href="../Services/toastService.html"><strong aria-hidden="true">6.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="../Examples/index.html"><strong aria-hidden="true">7.</strong> Examples</a></li><li class="chapter-item expanded "><a href="../TODO.html"><strong aria-hidden="true">8.</strong> Documentation TODO</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First</a></li><li class="chapter-item expanded "><a href="TheEditor.html" class="active"><strong aria-hidden="true">3.</strong> The Editor</a></li><li class="chapter-item expanded "><a href="GameState.html"><strong aria-hidden="true">4.</strong> Game State</a></li><li class="chapter-item expanded "><a href="GameValues.html"><strong aria-hidden="true">5.</strong> Game Values</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">6.</strong> Services</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">6.1.</strong> Character Service</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">6.2.</strong> Game Service</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">6.3.</strong> Player Service</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">6.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="Examples/index.html"><strong aria-hidden="true">7.</strong> Examples</a></li><li class="chapter-item expanded "><a href="TODO.html"><strong aria-hidden="true">8.</strong> Documentation TODO</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -107,7 +107,7 @@
                     <h1 class="menu-title">The Town Docs</h1>
 
                     <div class="right-buttons">
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                     </div>
@@ -134,66 +134,37 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="player-service"><a class="header" href="#player-service">Player Service</a></h1>
-<p>This service lets you interact with player specitic functionality, like the inventory.</p>
-<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
-<p><a href="#discarditems">discardItems</a></p>
-<p><a href="#marketitem">marketItem</a></p>
-<p><a href="#unmarketitem">unmarketItem</a></p>
-<p><a href="#buymarketitem">buyMarketItem</a></p>
-<p><a href="#getmarketitems">getMarketItems</a></p>
-<hr />
-<h3 id="discarditems"><a class="header" href="#discarditems">discardItems</a></h3>
-<p>Discart the given item IDs</p>
-<pre><code class="language-javascript">// Get and discard all inventory items
-const itemIds = game.store.getInventory().map((item) =&gt; {
-  return item.id;
-});
-
-await game.playerService.discardItems(itemIds);
-</code></pre>
-<h3 id="marketitem"><a class="header" href="#marketitem">marketItem</a></h3>
-<p>Send an item to the market with a given price</p>
-<pre><code class="language-javascript">// Send the first item in the inventory to the market
-const item = game.store.getInventory()[0];
-
-if (item) {
-  await game.playerService.marketItem({ itemId: item.id, price: 1234 });
-}
-</code></pre>
-<h3 id="unmarketitem"><a class="header" href="#unmarketitem">unmarketItem</a></h3>
-<p>Remove an item from the market</p>
-<pre><code class="language-javascript">// Remove the first marked item from the market
-const myMarketItems = await game.playerService.getMarketItems();
-const item = myMarketItems[0];
-
-if (item) {
-  await game.playerService.unmarketItem(item.id);
-}
-</code></pre>
-<h3 id="buymarketitem"><a class="header" href="#buymarketitem">buyMarketItem</a></h3>
-<p>Buy an item from the market</p>
-<pre><code class="language-javascript">// Buy the first item in the market
-const marketItems = await game.gameService.searchMarket();
-const item = marketItems[0];
-
-if (item) {
-  await game.playerService.buyMarketItem(item.id);
-}
-</code></pre>
-<h3 id="getmarketitems"><a class="header" href="#getmarketitems">getMarketItems</a></h3>
-<p>Get a list of your marketed items</p>
-<pre><code class="language-javascript">const myMarketItems = await game.playerService.getMarketItems();
-</code></pre>
+                        <h1 id="the-editor"><a class="header" href="#the-editor">The Editor</a></h1>
+<h2 id="making-changes"><a class="header" href="#making-changes">Making changes</a></h2>
+<p>Any changes made are immediately saved, but the script is not reloaded until requested.</p>
+<h2 id="files"><a class="header" href="#files">Files</a></h2>
+<p>&quot;Files&quot; are stored locally. Future enhancements will allow them to be stored with game data so that they may be transferred between devices.</p>
+<p>Files may be added and deleted through the buttons on the right column.</p>
+<p>Selecting a file will display it's code and allow it to be renamed via the button in the top right.</p>
+<h2 id="entry"><a class="header" href="#entry">Entry</a></h2>
+<p>A file must be selected as the entry point for the script, otherwise the script engine will not know where to start.</p>
+<h2 id="script-state-and-actions"><a class="header" href="#script-state-and-actions">Script state and actions</a></h2>
+<h3 id="running"><a class="header" href="#running">Running</a></h3>
+<p>This is displayed if the script has successfully started and is running without encountering any errors.</p>
+<h3 id="stopped"><a class="header" href="#stopped">Stopped</a></h3>
+<p>This is displayed if the script has been manually stopped.</p>
+<h3 id="errored"><a class="header" href="#errored">Errored</a></h3>
+<p>This is displayed if the script encounters an error.</p>
+<h3 id="stop--start"><a class="header" href="#stop--start">Stop / Start</a></h3>
+<p>Either stop or start the script.</p>
+<h3 id="restart"><a class="header" href="#restart">Restart</a></h3>
+<p>Stops and then restarts the script.</p>
+<h2 id="error-messages"><a class="header" href="#error-messages">Error Messages</a></h2>
+<p>In order to try and make error traces more understandable, file code is wrapped in functions named by the file name, with spaces replaced by underscores. This enables proper line reporting for the evauated code.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../Services/gameService.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="ReadFirst.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="../Services/toastService.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="GameState.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -202,10 +173,10 @@ if (item) {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../Services/gameService.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="ReadFirst.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="../Services/toastService.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="GameState.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -229,12 +200,12 @@ if (item) {
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
     </body>

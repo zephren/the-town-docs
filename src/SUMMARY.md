@@ -2,7 +2,8 @@
 
 - [Introduction](Introduction.md)
 - [Read First](ReadFirst.md)
-- [Game State (INCOMPLETE)](GameState.md)
+- [The Editor](TheEditor.md)
+- [Game State](GameState.md)
 - [Game Values](GameValues.md)
 - [Services](Services/index.md)
   - [Character Service](Services/characterService.md)

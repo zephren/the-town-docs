@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First</a></li><li class="chapter-item expanded "><a href="GameState.html"><strong aria-hidden="true">3.</strong> Game State (INCOMPLETE)</a></li><li class="chapter-item expanded "><a href="GameValues.html"><strong aria-hidden="true">4.</strong> Game Values</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">5.</strong> Services</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">5.1.</strong> Character Service</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">5.2.</strong> Game Service</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">5.3.</strong> Player Service</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">5.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="Examples/index.html"><strong aria-hidden="true">6.</strong> Examples</a></li><li class="chapter-item expanded "><a href="TODO.html"><strong aria-hidden="true">7.</strong> Documentation TODO</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="ReadFirst.html"><strong aria-hidden="true">2.</strong> Read First</a></li><li class="chapter-item expanded "><a href="TheEditor.html"><strong aria-hidden="true">3.</strong> The Editor</a></li><li class="chapter-item expanded "><a href="GameState.html"><strong aria-hidden="true">4.</strong> Game State</a></li><li class="chapter-item expanded "><a href="GameValues.html"><strong aria-hidden="true">5.</strong> Game Values</a></li><li class="chapter-item expanded "><a href="Services/index.html"><strong aria-hidden="true">6.</strong> Services</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Services/characterService.html"><strong aria-hidden="true">6.1.</strong> Character Service</a></li><li class="chapter-item expanded "><a href="Services/gameService.html"><strong aria-hidden="true">6.2.</strong> Game Service</a></li><li class="chapter-item expanded "><a href="Services/playerService.html"><strong aria-hidden="true">6.3.</strong> Player Service</a></li><li class="chapter-item expanded "><a href="Services/toastService.html"><strong aria-hidden="true">6.4.</strong> Toast Service</a></li></ol></li><li class="chapter-item expanded "><a href="Examples/index.html"><strong aria-hidden="true">7.</strong> Examples</a></li><li class="chapter-item expanded "><a href="TODO.html"><strong aria-hidden="true">8.</strong> Documentation TODO</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -151,6 +151,39 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="read-first"><a class="header" href="#read-first">Read First</a></h1>
 <h2 id="request-limits"><a class="header" href="#request-limits">Request Limits</a></h2>
 <p>Currently each player is limited to 120 requests every minute.</p>
+<h2 id="code-structure-and-execution"><a class="header" href="#code-structure-and-execution">Code structure and execution</a></h2>
+<p>Execution begins with the file specified in the editor. That file may be used to &quot;require&quot; other files using the <code>require</code> function. Here is an example usage:</p>
+<pre><code class="language-javascript">// Loads the configuration file to setup values for the rest of the scripts
+require(&quot;configure&quot;);
+
+// Load the file that sets up the different timers used to check and react to game state
+const timers = require(&quot;timers&quot;);
+
+// Start the timers
+timers.start();
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-editor"><a class="header" href="#the-editor">The Editor</a></h1>
+<h2 id="making-changes"><a class="header" href="#making-changes">Making changes</a></h2>
+<p>Any changes made are immediately saved, but the script is not reloaded until requested.</p>
+<h2 id="files"><a class="header" href="#files">Files</a></h2>
+<p>&quot;Files&quot; are stored locally. Future enhancements will allow them to be stored with game data so that they may be transferred between devices.</p>
+<p>Files may be added and deleted through the buttons on the right column.</p>
+<p>Selecting a file will display it's code and allow it to be renamed via the button in the top right.</p>
+<h2 id="entry"><a class="header" href="#entry">Entry</a></h2>
+<p>A file must be selected as the entry point for the script, otherwise the script engine will not know where to start.</p>
+<h2 id="script-state-and-actions"><a class="header" href="#script-state-and-actions">Script state and actions</a></h2>
+<h3 id="running"><a class="header" href="#running">Running</a></h3>
+<p>This is displayed if the script has successfully started and is running without encountering any errors.</p>
+<h3 id="stopped"><a class="header" href="#stopped">Stopped</a></h3>
+<p>This is displayed if the script has been manually stopped.</p>
+<h3 id="errored"><a class="header" href="#errored">Errored</a></h3>
+<p>This is displayed if the script encounters an error.</p>
+<h3 id="stop--start"><a class="header" href="#stop--start">Stop / Start</a></h3>
+<p>Either stop or start the script.</p>
+<h3 id="restart"><a class="header" href="#restart">Restart</a></h3>
+<p>Stops and then restarts the script.</p>
+<h2 id="error-messages"><a class="header" href="#error-messages">Error Messages</a></h2>
+<p>In order to try and make error traces more understandable, file code is wrapped in functions named by the file name, with spaces replaced by underscores. This enables proper line reporting for the evauated code.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="game-state"><a class="header" href="#game-state">Game State</a></h1>
 <p>The client game state is stored locally and globally in <code>store.state</code>. There are a lot of properties in the store state, however you don't need to know all of them. This section will cover what should be most valuable.</p>
 <p>For example to get to the character's current equipment.</p>
@@ -273,14 +306,21 @@
 <pre><code class="language-javascript">// Get the first item in the inventory
 const item = game.store.getInventory()[0];
 
-game.gameService.equip(item.id);
+game.characterService.equip(item.id);
 </code></pre>
 <h3 id="unequip"><a class="header" href="#unequip">unequip</a></h3>
 <p>Unequip an item</p>
 <pre><code class="language-javascript">const equipment = game.store.getCharacter().equipment;
 
 // Unequip the first item in the list of equipment
-game.gameService.unequip(equipment[0]);
+game.characterService.unequip(equipment[0]);
+</code></pre>
+<h3 id="get"><a class="header" href="#get">get</a></h3>
+<p>Get character data about a logged in player</p>
+<pre><code class="language-javascript">const username = &quot;admin&quot;;
+const character = game.characterService.get(username);
+
+// Do something with the character data
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="game-service"><a class="header" href="#game-service">Game Service</a></h1>
 <p>This service contains the majoirty of the actions for interacting with the game.</p>

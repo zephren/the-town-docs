@@ -18,7 +18,7 @@ Equip an item
 // Get the first item in the inventory
 const item = game.store.getInventory()[0];
 
-game.gameService.equip(item.id);
+game.characterService.equip(item.id);
 ```
 
 ### unequip
@@ -29,5 +29,16 @@ Unequip an item
 const equipment = game.store.getCharacter().equipment;
 
 // Unequip the first item in the list of equipment
-game.gameService.unequip(equipment[0]);
+game.characterService.unequip(equipment[0]);
+```
+
+### get
+
+Get character data about a logged in player
+
+```javascript
+const username = "admin";
+const character = game.characterService.get(username);
+
+// Do something with the character data
 ```
