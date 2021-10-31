@@ -1,5 +1,11 @@
 # Read First
 
+## Fail safe
+
+In the event that you happen to introduce an infinite loop into your script, or it is doing somthing else undesired, add `?scriptSaveMode=1` to the URL.
+
+[http://thetowngame.com/?scriptSafeMode=1](http://thetowngame.com/?scriptSafeMode=1)
+
 ## Request Limits
 
 Currently each player is limited to 120 requests every minute.

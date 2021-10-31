@@ -149,6 +149,9 @@
 <p>As you work with the provided interfaces for interacting with the game, you may notice some things that may not be considered best practice. While I try to adhear to good practces, some choices I make are to create as simple of an interface as possible for anyone who might be interested in trying to build scripts for the game. All of this is likely to evolve as the game's implemenation starts to settle.</p>
 <p>If there is interest in being able to interact with the game in other languages using a websocket connection, I can enhance the documentation to explain other processes not described here, such as how to login.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="read-first"><a class="header" href="#read-first">Read First</a></h1>
+<h2 id="fail-safe"><a class="header" href="#fail-safe">Fail safe</a></h2>
+<p>In the event that you happen to introduce an infinite loop into your script, or it is doing somthing else undesired, add <code>?scriptSaveMode=1</code> to the URL.</p>
+<p><a href="http://thetowngame.com/?scriptSafeMode=1">http://thetowngame.com/?scriptSafeMode=1</a></p>
 <h2 id="request-limits"><a class="header" href="#request-limits">Request Limits</a></h2>
 <p>Currently each player is limited to 120 requests every minute.</p>
 <h2 id="code-structure-and-execution"><a class="header" href="#code-structure-and-execution">Code structure and execution</a></h2>
